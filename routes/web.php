@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.master');
+});
+// 使用者
+
+Route::group(['prefix' => 'user'],function(){
+    // 使用者驗證
+    Route::group(['prefix' => 'auth'],function(){
+        //使用者註冊頁面
+        Route::get('/sign-up',[\App\Http\Controllers\UserAuthController::class,'signUpPage']);
+
+        //使用者資料新增
+        Route::post('/sign-up',[\App\Http\Controllers\UserAuthController::class,'signUpProcess']);
+    });
 });
