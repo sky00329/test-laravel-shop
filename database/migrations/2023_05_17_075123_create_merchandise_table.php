@@ -29,9 +29,9 @@ class CreateMerchandiseTable extends Migration
             $table->string('name_en',80)->nullable();//允許空值
 
             //商品介紹
-            $table->text('introduction');
+            $table->text('introduction_merchandise');
             //商品英文介紹
-            $table->text('introduction_en');
+            $table->text('introduction_merchandise_en');
 
             //商品照片
             $table->string('introduction',50)->nullable();
