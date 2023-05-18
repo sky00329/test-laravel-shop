@@ -14,13 +14,25 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+            
+            //會員編號->主鍵且自動增加
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            //Email
+            $table->string('email');
+            //密碼
             $table->string('password');
-            $table->rememberToken();
+            //帳號類型
+            // -A :管理者  -G :一般會員
+            $table->string('type',1)->default('G');
+            //會員名稱
+            $table->string('name');
+            //時間戳記
             $table->timestamps();
+            //鍵值索引
+
+            $table->unique(['email'],'user_email_uk');
+
+            $table->rememberToken();
         });
     }
 
