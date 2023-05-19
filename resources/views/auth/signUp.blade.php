@@ -12,22 +12,24 @@
 <!--載入社交模組 components.socialButtons -->
 @include('components.socialButtons')
 
+
+
         <form action="#" method="post">
             <label>
                 暱稱 : 
-                <input type="text" neme="nickname" placeholder="暱稱">
+                <input type="text" name="nickname" placeholder="暱稱">
             </label>
             <label>
                 Email : 
-                <input type="text" neme="email" placeholder="Email">
+                <input type="text" name="email" placeholder="Email">
             </label>
             <label>
                 密碼 : 
-                <input type="password" neme="password" >
+                <input type="password" name="password" >
             </label>
             <label>
                 確認密碼 : 
-                <input type="password" neme="password_confirmation" >
+                <input type="password" name="password_confirmation" >
             </label>
             <label>
                 帳號類型 : 
@@ -44,6 +46,8 @@
 
             <button type="submit">註冊</button>
         </form>
+<!--載入錯誤模板訊息 -->
+@include('components.validationErrorMessage')
 
     </div>
 @endsection

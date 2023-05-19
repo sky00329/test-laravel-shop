@@ -39,12 +39,12 @@ class UserAuthController extends Controller {
             //密碼
             'password' => [
                 'required',
-                'same:password_comfirmation',
+                'same:password_confirmation',
                 'min:6',
             ],
 
             //密碼驗證
-            'password_comfirmation' => [
+            'password_confirmation' => [
                 'required',
                 'min:6',
             ],

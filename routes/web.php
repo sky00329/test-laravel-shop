@@ -28,3 +28,12 @@ Route::group(['prefix' => 'user'],function(){
         Route::post('/sign-up',[\App\Http\Controllers\UserAuthController::class,'signUpProcess']);
     });
 });
+
+/*  多國語言
+use Illuminate\Support\Facades\App;
+Route::get('/test', function(){
+    App::setLocale('en');
+    return trans('auth.failed');
+});
+
+*/
