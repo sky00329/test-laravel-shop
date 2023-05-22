@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Validator; //驗證器
+use Hash;
+use App\Shop\Entity\User; //使用者Eloquent ORM Model
 
 class UserAuthController extends Controller {
     //註冊頁
@@ -57,13 +59,24 @@ class UserAuthController extends Controller {
 
         ];
 
+        
+
         //驗證資料
         $validator = validator::make($input,$rule);
 
         if($validator->fails()){
             //資料驗證錯誤
             return redirect('/user/auth/sign-up')
-                ->withErrors($validator);
+                ->withErrors($validator)
+                ->withInput();
         }
+
+        //密碼加密
+        $input['password'] = Hash::make($input['password']);
+
+        //新增會員資料
+        $user = User::create($input);
+
+        //寄送註冊通知信
     }
 }
