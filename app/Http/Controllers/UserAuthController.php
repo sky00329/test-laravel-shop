@@ -78,5 +78,21 @@ class UserAuthController extends Controller {
         $user = User::create($input);
 
         //寄送註冊通知信
+        $mail_binding = [
+            'nickname' => $input['nickname']
+        ];
+/*
+        Mail::send('email.signUoEmailNotification',$mail_binding,function($mail) use($input){
+            //收件人
+            $mail->to($input['email']);
+            //寄件人
+            $mail->from('kj@kejyun.com');
+            //郵件主旨
+            $mail->subject('恭喜註冊 Shop Laravel 成功');
+
+        });
+*/
+        //重新導向到登入頁
+        return redirect('/user/auth/sign-in');
     }
 }

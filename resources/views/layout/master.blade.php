@@ -11,7 +11,7 @@
     <body>
         <header>
             <a href="/">首頁</a>
-            <a href="user/auth/sign-up">註冊</a>
+            <a href="/shopcart/public/user/auth/sign-up">註冊</a>
             <a href="#">登入</a>
         </header>
 
