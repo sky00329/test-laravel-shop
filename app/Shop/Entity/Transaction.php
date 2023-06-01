@@ -16,6 +16,6 @@ class Transaction extends Model{
         "merchandise_id",
         "price",
         "buy_count",
-        "total_price",
+        "total_price",123
     ];
 }
