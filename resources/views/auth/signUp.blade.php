@@ -8,6 +8,8 @@
 @section('content')
     <div class="container">
         <h1>{{ $title }}</h1>
+<!--載入錯誤訊息模組 components.socialButtons -->
+@include('components.validationErrorMessage')
 
 <!--載入社交模組 components.socialButtons -->
 @include('components.socialButtons')
@@ -54,8 +56,7 @@
 
             <button type="submit">註冊</button>
         </form>
-<!--載入錯誤模板訊息 -->
-@include('components.validationErrorMessage')
+
 
     </div>
 @endsection
