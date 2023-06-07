@@ -12,7 +12,7 @@
         <header>
             <a href="/">首頁</a>
             <a href="/shopcart/public/user/auth/sign-up">註冊</a>
-            <a href="#">登入</a>
+            <a href="/shopcart/public/user/auth/sign-in">登入</a>
         </header>
 
         <div class="container">

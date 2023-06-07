@@ -26,6 +26,15 @@ Route::group(['prefix' => 'user'],function(){
 
         //使用者資料新增
         Route::post('/sign-up',[\App\Http\Controllers\UserAuthController::class,'signUpProcess']);
+        
+        //使用者登入頁面
+        Route::get('/sign-in',[\App\Http\Controllers\UserAuthController::class,'signInPage']);
+
+        //使用者登入處理
+        Route::post('/sign-in',[\App\Http\Controllers\UserAuthController::class,'signInProcess']);
+
+        //使用者登出
+        Route::get('/sign-out',[\App\Http\Controllers\UserAuthController::class,'signOut']);
     });
 });
 

@@ -9,6 +9,43 @@ use Hash;
 use App\Shop\Entity\User; //使用者Eloquent ORM Model
 
 class UserAuthController extends Controller {
+    //登入頁
+    public function signInPage(){
+        $binding = [
+            'title' => '登入',
+        ];
+        return view('auth.signIn',$binding);
+    }
+
+    //處理登入資料
+    public function signInProcess(){
+
+        $input = request()->all(); 
+
+        $rules = [
+            'email' => [
+                'required',
+                'max:150',
+                'email',
+            ],
+
+            'password' => [
+                'required',
+                'min:6',
+            ],
+        ];
+
+        $validator = validator::make($input,$rules);
+
+        if($validator->fails()){
+            //資料驗證錯誤
+            return redirect('/user/auth/sign-in')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        
+    }
+
     //註冊頁
     public function signUpPage(){
         $binding = [
